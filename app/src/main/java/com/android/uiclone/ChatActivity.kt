@@ -8,54 +8,59 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.uiclone.databinding.ActivityChatingBinding
 import com.google.zxing.integration.android.IntentIntegrator
 import com.google.zxing.integration.android.IntentResult
 
 class ChatActivity : AppCompatActivity()  {
 
+    private lateinit var binding: ActivityChatingBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_chating)
-        val btmmenu_home = findViewById<LinearLayout>(R.id.btmmenu_home)
-        val btmmenu_locallife = findViewById<LinearLayout>(R.id.btmmenu_locallife)
-        val btmmenu_chat = findViewById<LinearLayout>(R.id.btmmenu_chat)
-        val btmmenu_myinfo = findViewById<LinearLayout>(R.id.btmmenu_myinfo)
-        val tv_local = findViewById<TextView>(R.id.tv_local)
-        val iv_qrcode = findViewById<ImageView>(R.id.iv_qrcode)
+        binding=ActivityChatingBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        tv_local.text= intent.getStringExtra("localarea")
+        binding.tvLocal.text= intent.getStringExtra("localarea")
 
-        btmmenu_home.setOnClickListener {
+        binding.btmmenuHome.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             intent.putExtra("username","김경식")
             intent.putExtra("localarea","천호동")
             startActivity(intent)
         }
 
-        btmmenu_locallife.setOnClickListener {
+        binding.btmmenuLocallife.setOnClickListener {
             val intent = Intent(this, LocalLifeActivity::class.java)
             intent.putExtra("username","김경식")
             intent.putExtra("localarea","천호동")
             startActivity(intent)
         }
 
-        btmmenu_myinfo.setOnClickListener {
+        binding.btmmenuMyinfo.setOnClickListener {
             val intent = Intent(this, MyinfoActivity::class.java)
             intent.putExtra("username","김경식")
             intent.putExtra("localarea","천호동")
             startActivity(intent)
         }
 
-        btmmenu_chat.setOnClickListener {
+        binding.btmmenuChat.setOnClickListener {
             val intent = Intent(this, ChatActivity::class.java)
             intent.putExtra("username","김경식")
             intent.putExtra("localarea","천호동")
             startActivity(intent)
         }
 
-        iv_qrcode.setOnClickListener {
+        binding.ivQrcode.setOnClickListener {
             startQrcodeScan()
         }
+
+
+        val adapter = ChatAdapter(Data.chatData)
+        binding.rvChatList.adapter = adapter
+        binding.rvChatList.layoutManager = LinearLayoutManager(this)
+
     }
 
     private fun startQrcodeScan(){

@@ -51,495 +51,147 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/ll_recyclerviewContainer"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="90dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_topMenu">
 
-        <LinearLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_chatList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent" />
 
-            <!--    1개        -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp">
-
-                <ImageView
-                    android:id="@+id/iv_psa1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/clipping_circle"
-                    android:clipToOutline="true"
-                    android:src="@drawable/psa"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginEnd="70dp"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:text="마빠체"
-                            android:textColor="#ffffff"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="잠실 6동 · 2달 전"
-                            android:textColor="#777777"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="네 250만원입니다ㅋㅋㅋㅋ"
-                        android:textColor="#ffffff"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/iv_content1"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/clipping_roundsquare"
-                    android:clipToOutline="true"
-                    android:src="@drawable/aaa"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!--    1개        -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp">
-
-                <ImageView
-                    android:id="@+id/iv_psa2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/clipping_circle"
-                    android:clipToOutline="true"
-                    android:src="@drawable/psa"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginEnd="70dp"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:text="하사끼"
-                            android:textColor="#ffffff"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="자양동 · 3달 전"
-                            android:textColor="#777777"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="알겠습니다"
-                        android:textColor="#ffffff"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/iv_content2"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/clipping_roundsquare"
-                    android:clipToOutline="true"
-                    android:src="@drawable/aaa"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!--    1개        -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp">
-
-                <ImageView
-                    android:id="@+id/iv_psa3"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/clipping_circle"
-                    android:clipToOutline="true"
-                    android:src="@drawable/psa"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginEnd="70dp"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:text="선인장"
-                            android:textColor="#ffffff"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="천호제1동 · 3달 전"
-                            android:textColor="#777777"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="네 알겠습니다 지금 나가요"
-                        android:textColor="#ffffff"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/iv_content3"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/clipping_roundsquare"
-                    android:clipToOutline="true"
-                    android:src="@drawable/aaa"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!--    1개        -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp">
-
-                <ImageView
-                    android:id="@+id/iv_psa4"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/clipping_circle"
-                    android:clipToOutline="true"
-                    android:src="@drawable/psa"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginEnd="70dp"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:text="Fairguy"
-                            android:textColor="#ffffff"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="오륜동 · 1달 전"
-                            android:textColor="#777777"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="네"
-                        android:textColor="#ffffff"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/iv_content4"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/clipping_roundsquare"
-                    android:clipToOutline="true"
-                    android:src="@drawable/aaa"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!--    1개        -->
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp">
-
-                <ImageView
-                    android:id="@+id/iv_psa5"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/clipping_circle"
-                    android:clipToOutline="true"
-                    android:src="@drawable/psa"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <LinearLayout
-                    android:id="@+id/linearLayout5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginEnd="70dp"
-                    android:orientation="vertical"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:text="당근"
-                            android:textColor="#ffffff"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2달 전"
-                            android:textColor="#777777"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="(두근두근)첫거래 시작"
-                        android:textColor="#ffffff"
-                        android:textSize="20sp" />
-
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/iv_content5"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:background="@drawable/clipping_roundsquare"
-                    android:clipToOutline="true"
-                    android:src="@drawable/aaa"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </LinearLayout>
-
-    </ScrollView>
-
+    </LinearLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="#333333"
-        app:layout_constraintBottom_toBottomOf="@+id/scrollView2" />
+        app:layout_constraintBottom_toBottomOf="@+id/ll_recyclerviewContainer" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:orientation="horizontal"
         android:padding="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:id="@+id/btmmenu_home"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/hut"/>
+                android:src="@drawable/hut" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="@string/bottommenu_home"
                 android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/btmmenu_locallife"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/copy"/>
+                android:src="@drawable/copy" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="@string/bottommenu_locallife"
                 android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/btmmenu_mynear"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/location"/>
+                android:src="@drawable/location" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/bottommenu_myarround"
-                android:textColor="#ffffff"
-
                 android:layout_marginTop="5dp"
-                android:textSize="14sp"/>
+                android:text="@string/bottommenu_myarround"
+
+                android:textColor="#ffffff"
+                android:textSize="14sp" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/btmmenu_chat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/chat"/>
+                android:src="@drawable/chat" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="@string/bottommenu_chat"
                 android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/btmmenu_myinfo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/user2"/>
+                android:src="@drawable/user2" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="@string/bottommenu_mydg"
                 android:textColor="#ffffff"
-                android:layout_marginTop="5dp"
-                android:textSize="14sp"/>
+                android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>
 

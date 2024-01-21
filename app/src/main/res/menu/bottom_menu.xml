@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/navi_home"
+        android:icon="@drawable/hut"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="홈"/>
+    <item
+        android:id="@+id/navi_localLife"
+        android:icon="@drawable/copy"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="동네생활"/>
+    <item
+        android:id="@+id/navi_myNear"
+        android:icon="@drawable/location"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="내 근처"/>
+    <item
+        android:id="@+id/navi_chat"
+        android:icon="@drawable/chat"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="채팅"/>
+    <item
+        android:id="@+id/navi_myInfo"
+        android:icon="@drawable/user2"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:title="나의 정보" />
+
+</menu>

@@ -1,6 +1,7 @@
 package com.android.uiclone
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -18,6 +19,10 @@ class ChatAdapter(val chatItems:MutableList<Chat>) : RecyclerView.Adapter<ChatAd
         val contentPic = binding.ivContentPic
     }
 
+    interface ItemClick {
+        fun onClick(view : View, position : Int)
+    }
+    var itemClick : ItemClick? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = ActivityChatingRecyclerviewItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return Holder(binding)
@@ -36,7 +41,7 @@ class ChatAdapter(val chatItems:MutableList<Chat>) : RecyclerView.Adapter<ChatAd
         holder.contentPic.setImageResource(chatItems[position].contentImg)
 
         holder.itemView.setOnClickListener {
-            Toast.makeText(holder.itemView.context ,"게시글 클릭됨",Toast.LENGTH_SHORT).show()
+            itemClick?.onClick(it,holder.adapterPosition)
         }
     }
 }

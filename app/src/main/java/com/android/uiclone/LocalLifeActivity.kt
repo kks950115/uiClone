@@ -10,39 +10,61 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.uiclone.databinding.ActivityLocallifeBinding
 
 class LocalLifeActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLocallifeBinding
+    private val binding by lazy { ActivityLocallifeBinding.inflate(layoutInflater) }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLocallifeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-        binding.btmmenuHome.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.putExtra("username", "김경식")
-            intent.putExtra("localarea", "천호동")
-            startActivity(intent)
-        }
-
-        binding.btmmenuLocallife.setOnClickListener {
-            val intent = Intent(this, LocalLifeActivity::class.java)
-            intent.putExtra("username", "김경식")
-            intent.putExtra("localarea", "천호동")
-            startActivity(intent)
-        }
-
-        binding.btmmenuMyinfo.setOnClickListener {
-            val intent = Intent(this, MyinfoActivity::class.java)
-            intent.putExtra("username", "김경식")
-            intent.putExtra("localarea", "천호동")
-            startActivity(intent)
-        }
-
-        binding.btmmenuChat.setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtra("username", "김경식")
-            intent.putExtra("localarea", "천호동")
-            startActivity(intent)
+        val communityData = mutableListOf<Community>(
+            Community("모임이름1",R.drawable.psa),
+            Community("모임이름2",R.drawable.psa),
+            Community("모임이름3",R.drawable.psa),
+            Community("모임이름4",R.drawable.psa),
+            Community("모임이름5",R.drawable.psa),
+            Community("모임이름6",R.drawable.psa),
+            Community("모임이름7",R.drawable.psa),
+            Community("모임이름8",R.drawable.psa),
+            Community("모임이름9",R.drawable.psa),
+            Community("모임이름10",R.drawable.psa),
+            Community("모임이름11",R.drawable.psa),
+            Community("모임이름12",R.drawable.psa),
+            Community("모임이름13",R.drawable.psa)
+        )
+        val localLifePostData = mutableListOf<LocalLifePost>(
+            LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+            LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+            LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+            LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+            LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp,listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+            LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+            LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+            LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35)
+        )
+        binding.bottomNaviViiew.run{
+            setOnItemSelectedListener {
+                when(it.itemId) {
+                    R.id.navi_home -> {
+                        val intent = Intent(applicationContext,HomeActivity::class.java)
+                        startActivity(intent)
+                    }
+                    R.id.navi_localLife -> {
+                        val intent = Intent(applicationContext,LocalLifeActivity::class.java)
+                        startActivity(intent)
+                        //setFragment(fragmentlocalLife)
+                    }
+                    R.id.navi_myInfo -> {
+                        val intent = Intent(applicationContext,MyinfoActivity::class.java)
+                        startActivity(intent)
+                        //setFragment(fragmentMyinfo)
+                    }
+                    R.id.navi_chat -> {
+                        val intent = Intent(applicationContext,ChatActivity::class.java)
+                        startActivity(intent)
+                        //Log.d("test","이거 작동하고있냐?")
+                        //setFragment(fragmentChat)
+                    }
+                }
+                true
+            }
         }
         binding.tvLocalarea.text = intent?.getStringExtra("localarea")
         Toast.makeText(
@@ -51,12 +73,12 @@ class LocalLifeActivity : AppCompatActivity() {
             Toast.LENGTH_SHORT
         ).show()
 
-        val communityAdapter = CommunityAdapter(Data.communityData)
+        val communityAdapter = CommunityAdapter(communityData)
         binding.rvGroupList.adapter = communityAdapter
         binding.rvGroupList.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
-        val localLifePostAdapter = LocalLifePostAdapter(Data.localLifePostData)
+        val localLifePostAdapter = LocalLifePostAdapter(localLifePostData)
         binding.rvLocalLifePostList.adapter = localLifePostAdapter
         binding.rvLocalLifePostList.layoutManager = LinearLayoutManager(this)
 

@@ -12,4 +12,20 @@ data class Chat(
     var content:String,
     var contentImg:Int
 ) : Parcelable
+@Parcelize
+data class ChatDetail(
+    val personName : String,
+    var temper : String,
+    var tradeStatus : String,
+    val productName : String,
+    var productPrice : String,
+    var productPic : Int
+) : Parcelable
 
+@Parcelize
+data class ChatLog(
+    var content : String,
+    val time : String,
+    val viewType : Int,
+    val img : Int
+) : Parcelable

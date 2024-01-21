@@ -21,43 +21,28 @@ class ChatActivity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         binding=ActivityChatingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.tvLocal.text= intent.getStringExtra("localarea")
-
-        binding.btmmenuHome.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-            intent.putExtra("username","김경식")
-            intent.putExtra("localarea","천호동")
-            startActivity(intent)
-        }
-
-        binding.btmmenuLocallife.setOnClickListener {
-            val intent = Intent(this, LocalLifeActivity::class.java)
-            intent.putExtra("username","김경식")
-            intent.putExtra("localarea","천호동")
-            startActivity(intent)
-        }
-
-        binding.btmmenuMyinfo.setOnClickListener {
-            val intent = Intent(this, MyinfoActivity::class.java)
-            intent.putExtra("username","김경식")
-            intent.putExtra("localarea","천호동")
-            startActivity(intent)
-        }
-
-        binding.btmmenuChat.setOnClickListener {
-            val intent = Intent(this, ChatActivity::class.java)
-            intent.putExtra("username","김경식")
-            intent.putExtra("localarea","천호동")
-            startActivity(intent)
-        }
+        val chatData = mutableListOf<Chat>(
+            Chat(R.drawable.user, "김경식","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식1","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식2","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식3","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식4","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식5","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식6","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식7","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식8","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식9","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식10","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식11","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+            Chat(R.drawable.user, "김경식12","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel)
+        )
 
         binding.ivQrcode.setOnClickListener {
             startQrcodeScan()
         }
 
 
-        val adapter = ChatAdapter(Data.chatData)
+        val adapter = ChatAdapter(chatData)
         binding.rvChatList.adapter = adapter
         binding.rvChatList.layoutManager = LinearLayoutManager(this)
 

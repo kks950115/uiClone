@@ -1,18 +1,16 @@
 package com.android.uiclone
 
-import android.app.Activity
-import android.content.Intent
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.uiclone.databinding.FragmentChatBinding
-import com.google.zxing.integration.android.IntentIntegrator
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,6 +21,9 @@ interface ChatDataListener {
 }
 class ChatFragment : Fragment(R.layout.fragment_chat) {
 
+    private var chatyResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+
+    }
     private var chat :Chat? = null
     private var _binding:FragmentChatBinding? =null
     private val binding get() = _binding!!
@@ -35,6 +36,15 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
         }
     }
 
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        if(context is ChatDataListener){
+            listener = context
+        }else{
+            throw RuntimeException("$context must implement ChatDataListener")
+        }
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -57,12 +67,25 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
         adapter.itemClick = object : ChatAdapter.ItemClick {
             override fun onClick(view: View, position: Int) {
                 val bundle = Bundle()
-                val data = position
-                bundle.putInt("key",data)
+                val chatDetail = Data.chatDetail[position]
+                val chatLog = Data.chatLogs[position]
+                bundle.putParcelable("chatDetail",chatDetail)
+                bundle.putParcelableArrayList("chatLog",chatLog)
+                bundle.putInt("itemIndex", position)
                 listener?.onDataReceived(bundle)
+                //Log.d("test","클릭 확인 ,${position}, ${chatDetail} ,${chatLog}")
             }
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Binding 객체 해제
+        _binding = null
+        listener = null
+    }
+
+
     companion object {
         /**
          * Use this factory method to create a new instance of

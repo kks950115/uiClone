@@ -33,8 +33,7 @@ class HomeActivity : AppCompatActivity(),ChatDataListener {
                         1 -> R.id.navi_localLife
                         2 -> R.id.navi_myNear
                         3 -> R.id.navi_chat
-                        4 -> R.id.navi_myInfo
-                        else -> R.id.navi_home
+                        else -> R.id.navi_myInfo
                     }
                 }
             } )
@@ -73,7 +72,7 @@ class HomeActivity : AppCompatActivity(),ChatDataListener {
     override fun onDataReceived(data: Bundle) {
         Log.d("test", "data = ${data}")
         val intent = Intent(this,ChatDetailActivity::class.java)
-        intent.putExtra("chat",data)
+        intent.putExtra("data",data)
         startActivity(intent)
     }
 }

@@ -2,30 +2,30 @@ package com.android.uiclone
 
 object Data {
     val chatData = mutableListOf<Chat>(
-        Chat(R.drawable.user, "김경식","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
+        Chat(R.drawable.user, "사람이름","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
         Chat(R.drawable.user, "김경식2","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel),
         Chat(R.drawable.user, "김경식3","천호동","1달전","안녕하세요 ㅎㅎ",R.drawable.angel)
     )
     val chatDetail = mutableListOf(
-        ChatDetail("김경식","52.6℃", "거래 완료","자전거","625,000d원",R.drawable.background),
+        ChatDetail("사람이름","52.6℃", "거래 완료","자전거","625,000d원",R.drawable.background),
         ChatDetail("김경식2","62.6℃", "거래 완료","고구마","15,000원",R.drawable.background),
         ChatDetail("김경식3","82.6℃", "예약 중","시계","320,000d원",R.drawable.background)
     )
     val chatLogs = mutableListOf(
-         mutableListOf(
+         arrayListOf(
             ChatLog("채팅1","오후 12:12",1,R.drawable.background),
             ChatLog("채팅2","오후 12:12",2,R.drawable.background),
             ChatLog("채팅3","오후 12:12",1,R.drawable.background),
             ChatLog("채팅4","오후 12:12",2,R.drawable.background)
         ),
-        mutableListOf(
-            ChatLog("채팅1","오후 12:12",1,R.drawable.background),
+        arrayListOf(
+            ChatLog("채팅1","오후 12:12",2,R.drawable.background),
             ChatLog("채팅2","오후 12:12",1,R.drawable.background),
             ChatLog("채팅3","오후 12:12",1,R.drawable.background),
             ChatLog("채팅4","오후 12:12",2,R.drawable.background)
         ),
-        mutableListOf(
-            ChatLog("채팅1","오후 12:12",1,R.drawable.background),
+        arrayListOf(
+            ChatLog("채팅1","오후 12:12",2,R.drawable.background),
             ChatLog("채팅2","오후 12:12",2,R.drawable.background),
             ChatLog("채팅3","오후 12:12",2,R.drawable.background),
             ChatLog("채팅4","오후 12:12",2,R.drawable.background)

@@ -1,5 +1,7 @@
 package com.android.uiclone
 
+import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +14,9 @@ import com.android.uiclone.databinding.RvLeftChatBoxBinding
 import com.android.uiclone.databinding.RvRightChatBoxBinding
 import com.google.android.material.transition.Hold
 
-class ChatLogAdapter(val chatItems:MutableList<ChatLog>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ChatLogAdapter(var chatItems:MutableList<ChatLog>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    private var items = chatItems
     inner class Holder(val binding: RvLeftChatBoxBinding) : RecyclerView.ViewHolder(binding.root){
         private val img = binding.ivTvChatboxImg
         private val content = binding.tvChatboxContent
@@ -32,11 +36,8 @@ class ChatLogAdapter(val chatItems:MutableList<ChatLog>) : RecyclerView.Adapter<
         }
     }
 
-    interface ItemClick {
-        fun onClick(view : View, position : Int)
-    }
-    var itemClick : ItemClick? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        Log.d("test","뷰타입은 ${viewType}")
         if(viewType == Constants.LEFT){
             return Holder(
                 RvLeftChatBoxBinding.inflate(LayoutInflater.from(parent.context),
@@ -44,35 +45,37 @@ class ChatLogAdapter(val chatItems:MutableList<ChatLog>) : RecyclerView.Adapter<
                     false
                     )
             )
-        }
-        return Holder2(
-            RvRightChatBoxBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
+        }else{
+            return Holder2(
+                RvRightChatBoxBinding.inflate(
+                    LayoutInflater.from(parent.context),
+                    parent,
+                    false
+                )
             )
-        )
+        }
+
     }
 
 
 
     override fun getItemCount(): Int {
-        return chatItems.size
+        return items.size
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        when (chatItems[position].viewType){
+        when (items[position].viewType){
             Constants.LEFT -> {
-                (holder as Holder).bind(chatItems[position])
+                (holder as Holder).bind(items[position])
             }
             Constants.RIGHT -> {
-                (holder as Holder2).bind(chatItems[position])
+                (holder as Holder2).bind(items[position])
             }
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        return chatItems[position].viewType
+        return items[position].viewType
     }
 
 }

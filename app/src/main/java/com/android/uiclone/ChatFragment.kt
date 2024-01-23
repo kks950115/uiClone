@@ -17,7 +17,7 @@ import com.android.uiclone.databinding.FragmentChatBinding
 private const val CHAT_KEY = "chat_key"
 
 interface ChatDataListener {
-    fun onDataReceived(data: Bundle)
+    fun onChatDataReceived(data: Bundle)
 }
 class ChatFragment : Fragment(R.layout.fragment_chat) {
 
@@ -72,7 +72,7 @@ class ChatFragment : Fragment(R.layout.fragment_chat) {
                 bundle.putParcelable("chatDetail",chatDetail)
                 bundle.putParcelableArrayList("chatLog",chatLog)
                 bundle.putInt("itemIndex", position)
-                listener?.onDataReceived(bundle)
+                listener?.onChatDataReceived(bundle)
                 //Log.d("test","클릭 확인 ,${position}, ${chatDetail} ,${chatLog}")
             }
         }

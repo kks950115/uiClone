@@ -28,26 +28,34 @@ class HomeActivity : AppCompatActivity(),ChatDataListener {
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
-                    binding.bottomNaviViiew.selectedItemId = when (position) {
-                        0 -> R.id.navi_home
-                        1 -> R.id.navi_localLife
-                        2 -> R.id.navi_myNear
-                        3 -> R.id.navi_chat
-                        else -> R.id.navi_myInfo
-                    }
+//                    binding.bottomNaviViiew.selectedItemId = when (position) {
+//                        0 -> R.id.navi_home
+//                        1 -> R.id.navi_localLife
+//                        2 -> R.id.navi_myNear
+//                        3 -> R.id.navi_chat
+//                        else -> R.id.navi_myInfo
+//                    }
                 }
             } )
         }
-
+        //binding.vp2.currentItem=3
         binding.bottomNaviViiew.setOnNavigationItemSelectedListener {
-            when (it.itemId){
-                R.id.navi_home -> binding.vp2.currentItem =0
-                R.id.navi_localLife -> binding.vp2.currentItem =1
-                R.id.navi_myNear -> binding.vp2.currentItem =2
-                R.id.navi_chat -> binding.vp2.currentItem =3
-                R.id.navi_myInfo -> binding.vp2.currentItem =4
+            when( it.title){
+                "홈" -> binding.vp2.currentItem =0
+                "동네생활" -> binding.vp2.currentItem =1
+                "내 근처" -> binding.vp2.currentItem =2
+                "채팅" -> binding.vp2.currentItem =3
+                "나의 정보" -> binding.vp2.currentItem =4
                 else -> binding.vp2.currentItem = 0
             }
+//            when (it.itemId){
+//                R.id.navi_home -> binding.vp2.currentItem =0
+//                R.id.navi_localLife -> binding.vp2.currentItem =1
+//                R.id.navi_myNear -> binding.vp2.currentItem =2
+//                R.id.navi_chat -> binding.vp2.currentItem =3
+//                R.id.navi_myInfo -> binding.vp2.currentItem =4
+//                else -> binding.vp2.currentItem = 0
+//            }
             true
         }
 
@@ -69,7 +77,7 @@ class HomeActivity : AppCompatActivity(),ChatDataListener {
         }
     }
 
-    override fun onDataReceived(data: Bundle) {
+    override fun onChatDataReceived (data: Bundle) {
         Log.d("test", "data = ${data}")
         val intent = Intent(this,ChatDetailActivity::class.java)
         intent.putExtra("data",data)

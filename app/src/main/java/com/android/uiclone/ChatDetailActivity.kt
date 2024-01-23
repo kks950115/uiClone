@@ -48,13 +48,7 @@ class ChatDetailActivity : AppCompatActivity() {
         binding.rvChatDetailChatiing.layoutManager = LinearLayoutManager(this)
 
         binding.ivSendMsg.setOnClickListener {
-            sendMessage()
-            binding.rvChatDetailChatiing.invalidate()
-            runOnUiThread {
-               chatLogAdapter.notifyItemInserted(chatLogAdapter.itemCount)
-               //binding.rvChatDetailChatiing.adapter =chatLogAdapter
-            }
-
+            if(binding.etChatDetailInput.text.isNotEmpty()) sendMessage()
         }
 
     }
@@ -65,7 +59,10 @@ class ChatDetailActivity : AppCompatActivity() {
         var current = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofPattern("a h:mm", Locale.KOREA)
         val formatted = current.format(formatter)
-        Data.chatLogs[itemIndex!!].add(ChatLog(text,formatted,2,R.drawable.background))
+        val data= ChatLog(text,formatted,2,R.drawable.background)
+        Data.chatLogs[itemIndex!!].add(data)
+        (binding.rvChatDetailChatiing.adapter as ChatLogAdapter).addItems(data)
+        binding.rvChatDetailChatiing.scrollToPosition(chatLog!!.size-1)
         binding.etChatDetailInput.text.clear()
     }
 }

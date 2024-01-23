@@ -16,16 +16,16 @@ import com.android.uiclone.databinding.FragmentLocalLifeBinding
 private const val LOCAL_LIFE_KEY = "local_life_key"
 private const val COMUNITY_KEY = "comunity_key"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LocalLifeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+interface LocalDataListener {
+    fun onLocalDataReceived(data: Bundle)
+}
+
 class LocalLifeFragment : Fragment(R.layout.fragment_local_life) {
     // TODO: Rename and change types of parameters
     private var localLifePostData : LocalLifePost? = null
     private var community : Community? = null
     private var _binding: FragmentLocalLifeBinding? =null
+    private var listener: ChatDataListener? = null
     private  val binding get() = _binding!!
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)

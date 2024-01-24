@@ -1,7 +1,9 @@
 package com.android.uiclone
 
+import android.content.Context
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +27,7 @@ class LocalLifeFragment : Fragment(R.layout.fragment_local_life) {
     private var localLifePostData : LocalLifePost? = null
     private var community : Community? = null
     private var _binding: FragmentLocalLifeBinding? =null
-    private var listener: ChatDataListener? = null
+    private var listener: LocalDataListener? = null
     private  val binding get() = _binding!!
 
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
@@ -34,6 +36,16 @@ class LocalLifeFragment : Fragment(R.layout.fragment_local_life) {
         arguments?.let {
             localLifePostData = it.getParcelable(LOCAL_LIFE_KEY,LocalLifePost::class.java)
             community = it.getParcelable(COMUNITY_KEY,Community::class.java)
+        }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        if(context is LocalDataListener){
+            listener = context
+        }else{
+            throw RuntimeException("$context must implement ChatDataListener")
         }
     }
 
@@ -56,6 +68,27 @@ class LocalLifeFragment : Fragment(R.layout.fragment_local_life) {
         val localLifePostAdapter = LocalLifePostAdapter(Data.localLifePostData)
         binding.rvLocalLifePostList.adapter = localLifePostAdapter
         binding.rvLocalLifePostList.layoutManager = LinearLayoutManager(context)
+
+        localLifePostAdapter.itemClick = object : LocalLifePostAdapter.ItemClick {
+            override fun onClick(view: View, position: Int) {
+                val bundle = Bundle()
+                val localDetail = Data.localLifePostData[position]
+                val commentLog = Data.localDetailCommentData[position]
+                bundle.putParcelable("localDetail",localDetail)
+                bundle.putParcelableArrayList("ccommentLog",commentLog)
+                bundle.putInt("itemIndex", position)
+                listener?.onLocalDataReceived(bundle)
+                Log.d("test","클릭됨")
+            }
+
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // Binding 객체 해제
+        _binding = null
+        listener = null
     }
     companion object {
         /**

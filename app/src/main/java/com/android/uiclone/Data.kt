@@ -47,16 +47,59 @@ object Data {
         Community("모임이름13",R.drawable.psa)
     )
     val localLifePostData = mutableListOf<LocalLifePost>(
-        LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
-        LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
-        LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
-        LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
-        LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp,listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
-        LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
-        LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
-        LocalLifePost("2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35)
+        LocalLifePost("이름1","2040 배드민턴 소모임",R.drawable.ic_entp, listOf("인기","잡담"),"1에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+        LocalLifePost("이름2","2040 배드민턴 소모임2",R.drawable.ic_entp, listOf("인기","잡담"),"2에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+        LocalLifePost("이름3","2040 배드민턴 소모임3",R.drawable.ic_entp, listOf("인기","잡담"),"3에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+        LocalLifePost("이름4","2040 배드민턴 소모임4",R.drawable.ic_entp, listOf("인기","잡담"),"4에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+        LocalLifePost("이름5","2040 배드민턴 소모임5",R.drawable.ic_entp,listOf("인기","잡담"),"5에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+        LocalLifePost("이름6","2040 배드민턴 소모임6",R.drawable.ic_entp, listOf("인기","잡담"),"6에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+        LocalLifePost("이름7","2040 배드민턴 소모임7",R.drawable.ic_entp, listOf("인기","잡담"),"7에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35),
+        LocalLifePost("이름8","2040 배드민턴 소모임8",R.drawable.ic_entp, listOf("인기","잡담"),"8에이블짐 천호점 다니시는 분 계시나요~ 같이 운동해요! 같이 다닐 사람이 없어서 심심하네요.","천호동","한달전",35)
     )
 
+    val localDetailCommentData = mutableListOf(
+        arrayListOf(
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa)
+        ),
+        arrayListOf(
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa)
+        ),
+        arrayListOf(
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa)
+        ),
+        arrayListOf(
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa)
+        ),
+        arrayListOf(
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa)
+        ),
+        arrayListOf(
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa)
+        ),
+        arrayListOf(
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa)
+        ),
+        arrayListOf(
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa),
+            LocalDetailComment("asdf","천호제3동 인증 11회- 19시간 전","이것은 댓글 내용입니다.",R.drawable.psa)
+        )
+
+    )
 
 
 

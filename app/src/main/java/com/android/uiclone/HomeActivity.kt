@@ -11,7 +11,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.android.uiclone.databinding.ActivityHomeBinding
 
-class HomeActivity : AppCompatActivity(),ChatDataListener {
+class HomeActivity : AppCompatActivity(),ChatDataListener, LocalDataListener {
     private val binding by lazy { ActivityHomeBinding.inflate(layoutInflater) }
 //    private val fragmentHome by lazy { HomeFragment()}
 //    private val fragmentlocalLife by lazy { LocalLifeFragment()}
@@ -81,6 +81,13 @@ class HomeActivity : AppCompatActivity(),ChatDataListener {
     override fun onChatDataReceived (data: Bundle) {
         Log.d("test", "data = ${data}")
         val intent = Intent(this,ChatDetailActivity::class.java)
+        intent.putExtra("data",data)
+        startActivity(intent)
+    }
+
+    override fun onLocalDataReceived(data: Bundle) {
+        Log.d("test", "data = ${data}")
+        val intent = Intent(this,LocalDetailActivity::class.java)
         intent.putExtra("data",data)
         startActivity(intent)
     }

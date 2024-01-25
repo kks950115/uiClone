@@ -40,25 +40,34 @@ class HomeActivity : AppCompatActivity(),ChatDataListener, LocalDataListener {
             } )
         }
         //binding.vp2.currentItem=3
-        binding.bottomNaviViiew.setOnNavigationItemSelectedListener {
-//            when( it.title){
-//                "홈" -> binding.vp2.currentItem =0
-//                "동네생활" -> binding.vp2.currentItem =1
-//                "내 근처" -> binding.vp2.currentItem =2
-//                "채팅" -> binding.vp2.currentItem =3
-//                "나의 정보" -> binding.vp2.currentItem =4
-//                else -> binding.vp2.currentItem = 0
-//            }
-            when (it.itemId){
-                R.id.navi_home -> binding.vp2.currentItem =0
-                R.id.navi_localLife -> binding.vp2.currentItem =1
-                R.id.navi_myNear -> binding.vp2.currentItem =2
-                R.id.navi_chat -> binding.vp2.currentItem =3
-                R.id.navi_myInfo -> binding.vp2.currentItem =4
-                else -> binding.vp2.currentItem = 0
+        binding.bottomNaviViiew.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.navi_localLife -> {
+                    Log.d("jess", "1")
+                    binding.vp2.currentItem = 1
+                }
+                R.id.navi_myNear -> {
+                    Log.d("jess", "2")
+                    binding.vp2.currentItem = 2
+                }
+                R.id.navi_chat -> {
+                    Log.d("jess", "3")
+                    binding.vp2.currentItem = 3
+                }
+                R.id.navi_myInfo -> {
+                    Log.d("jess", "4")
+                    binding.vp2.currentItem = 4
+                }
+                else -> {
+                    Log.d("jess", "0")
+                    binding.vp2.currentItem = 0
+                }
             }
             true
         }
+
+
+
 
     }
 

@@ -25,13 +25,14 @@
 
     <TextView
         android:id="@+id/tv_chatbox_content"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:background="@drawable/black_roundsquare"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:maxWidth="250dp"
         android:text="내용"
         android:textColor="@color/white"
         android:textSize="18sp"

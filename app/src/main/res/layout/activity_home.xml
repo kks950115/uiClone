@@ -24,6 +24,7 @@
         android:background="#222222"
         app:itemIconTint="@color/bottom_menu_style"
         app:itemTextColor="@color/bottom_menu_style"
+        app:itemActiveIndicatorStyle="@color/orange"
         app:labelVisibilityMode="labeled"
         app:tabIndicatorColor="@color/orange"
         app:tabRippleColor="@color/orange"
